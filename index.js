@@ -19,9 +19,9 @@ const secret = 'dfdsfioio545sfd56';
 const app = express();
 const port = process.env.API_PORT || 4000;
 const dbUrl = process.env.DB_URL;
+const REACT_APP_URL = process.env.REACT_APP_URL;
 
-
-app.use(cors());
+app.use(cors({credentials:true,origin:REACT_APP_URL}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static('uploads'));
